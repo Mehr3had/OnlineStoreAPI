@@ -43,6 +43,17 @@ builder.Services.AddDbContext<ApplicationDbContext>(options=>options.UseSqlServe
     builder.Configuration.GetConnectionString("DefaultConnection")
 ));
 builder.Services.AddControllers();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("FrontendPolicy",policy =>
+    {
+        policy.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -88,6 +99,8 @@ builder.Services.AddScoped<IAuthService,AuthService>();
 builder.Services.AddValidatorsFromAssemblyContaining<ReviewCreateDtoValidator>();
 
 var app = builder.Build();
+
+app.UseCors("FrontendPolicy");
 
 app.UseMiddleware<ExceptionMiddleware>();
 
