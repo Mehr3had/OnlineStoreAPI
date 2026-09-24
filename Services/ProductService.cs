@@ -24,6 +24,7 @@ public class ProductService : IProductService
         var product=new Product
         {
             Title=dto.Title,
+            Description=dto.Description,
             Price=dto.Price,
             CategoryId=dto.CategoryId
         };
@@ -70,6 +71,10 @@ public class ProductService : IProductService
         {
             product.Title=dto.Title;
         }
+        if (dto.Description != null)
+        {
+            product.Description=dto.Description;
+        }
         if (dto.Price.HasValue)
         {
             product.Price=dto.Price.Value;
@@ -101,6 +106,7 @@ public class ProductService : IProductService
             throw new NotFoundException("Category not found.");
         }
         product.Title=dto.Title;
+        product.Description=dto.Description;
         product.Price=dto.Price;
         product.CategoryId=dto.CategoryId;
         await _unitOfWork.Products.UpdateAsync(product);
@@ -114,6 +120,7 @@ public class ProductService : IProductService
         {
             Id=product.Id,
             Title=product.Title,
+            Description=product.Description,
             Price=product.Price,
             CategoryId=product.CategoryId,
             Category=product.Category==null
