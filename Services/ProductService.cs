@@ -129,7 +129,14 @@ public class ProductService : IProductService
             {
                 Id=product.Category.Id,
                 Name=product.Category.Name
-            }
+            },
+            Images=product.Images.Select(image=>new ProductImageDto
+            {
+                Id=image.Id,
+                ProductId=image.ProductId,
+                ProductTitle=product.Title,
+                ImageUrl=image.ImageUrl
+            }).ToList()
         };
     }
 }

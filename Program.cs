@@ -100,6 +100,8 @@ builder.Services.AddValidatorsFromAssemblyContaining<ReviewCreateDtoValidator>()
 
 var app = builder.Build();
 
+app.UseStaticFiles();
+
 app.UseCors("FrontendPolicy");
 
 app.UseMiddleware<ExceptionMiddleware>();

@@ -264,31 +264,31 @@ public class ApplicationDbContext : DbContext
             new ProductImage
             {
                 Id=1,
-                ImageUrl="images/laptop-1.jpg",
+                ImageUrl="/images/laptop-1.jpg",
                 ProductId=1
             },
             new ProductImage
             {
                 Id=2,
-                ImageUrl="images/laptop-2.jpg",
+                ImageUrl="/images/laptop-2.jpg",
                 ProductId=1
             },
             new ProductImage
             {
                 Id=3,
-                ImageUrl="images/headphones-1.jpg",
+                ImageUrl="/images/headphones-1.jpg",
                 ProductId=2
             },
             new ProductImage
             {
                 Id=4,
-                ImageUrl="image/clean-code-1.jpg",
+                ImageUrl="/images/clean-code-1.jpg",
                 ProductId=3
             },
             new ProductImage
             {
                 Id=5,
-                ImageUrl="images/tshirt-1.jpg",
+                ImageUrl="/images/tshirt-1.jpg",
                 ProductId=4
             }
         );

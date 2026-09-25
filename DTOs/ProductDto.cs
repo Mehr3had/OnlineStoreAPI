@@ -7,4 +7,5 @@ public class ProductDto
     public decimal Price{get; set;}
     public int CategoryId{get; set;}
     public ProductCategoryDto? Category{get; set;}
+    public List<ProductImageDto> Images{get; set;}=new();
 }
